@@ -1,9 +1,9 @@
 require recipes-multimedia/gstreamer/gstreamer1.0-plugins-common.inc
 
-DEPENDS_append_imxgpu2d = " virtual/libg2d"
-DEPENDS_append_mx8 = " libdrm"
+DEPENDS:append_imxgpu2d = " virtual/libg2d"
+DEPENDS:append_mx8 = " libdrm"
 
-PACKAGECONFIG_append_mx8 = " kms"
+PACKAGECONFIG:append_mx8 = " kms"
 
 DEFAULT_PREFERENCE = "-1"
 
@@ -163,13 +163,13 @@ EXTRA_OEMESON += " \
 
 export OPENCV_PREFIX = "${STAGING_DIR_TARGET}${prefix}"
 
-ARM_INSTRUCTION_SET_armv4 = "arm"
-ARM_INSTRUCTION_SET_armv5 = "arm"
+ARM_INSTRUCTION_SET:armv4 = "arm"
+ARM_INSTRUCTION_SET:armv5 = "arm"
 
-FILES_${PN}-freeverb += "${datadir}/gstreamer-1.0/presets/GstFreeverb.prs"
-FILES_${PN}-opencv += "${datadir}/gst-plugins-bad/1.0/opencv*"
-FILES_${PN}-voamrwbenc += "${datadir}/gstreamer-1.0/presets/GstVoAmrwbEnc.prs"
+FILES:${PN}-freeverb += "${datadir}/gstreamer-1.0/presets/GstFreeverb.prs"
+FILES:${PN}-opencv += "${datadir}/gst-plugins-bad/1.0/opencv*"
+FILES:${PN}-voamrwbenc += "${datadir}/gstreamer-1.0/presets/GstVoAmrwbEnc.prs"
 # include fragment shaders
-FILES_${PN}-opengl += "/usr/share/*.fs"
+FILES:${PN}-opengl += "/usr/share/*.fs"
 
 COMPATIBLE_MACHINE = "(mx6|mx7|mx8)"

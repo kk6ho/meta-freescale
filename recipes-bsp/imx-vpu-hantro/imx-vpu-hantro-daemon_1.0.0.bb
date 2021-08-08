@@ -4,7 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=cd8bc2a79509c22fc9c1782a151210b1"
 
 DEPENDS = "imx-vpu-hantro"
-DEPENDS_append_mx8mp = " imx-vpu-hantro-vc"
+DEPENDS:append_mx8mp = " imx-vpu-hantro-vc"
 
 SRC_URI = " \
     ${FSL_MIRROR}/${BP}.tar.gz \

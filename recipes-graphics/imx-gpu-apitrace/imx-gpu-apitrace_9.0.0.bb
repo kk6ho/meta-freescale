@@ -37,7 +37,7 @@ PACKAGECONFIG[vivante] = "-DENABLE_VIVANTE=ON,-DENABLE_VIVANTE=OFF,virtual/libg2
 
 SOLIBS = ".so"
 FILES_SOLIBSDEV = ""
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/apitrace/scripts/* \
     ${libdir}/apitrace/wrappers/* \
 "

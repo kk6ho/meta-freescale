@@ -8,12 +8,12 @@ MACHINE_FEATURES += "wifi bluetooth bcm43455 bcm4356"
 # NXP BSP can consume proprietary jailhouse and Broadcom drivers
 # OP-TEE is also applicable to NXP BSP, mainline BSP seems not to have
 # a full support for it yet.
-MACHINE_FEATURES_append_use-nxp-bsp = " optee jailhouse bcm4359"
+MACHINE_FEATURES:append_use-nxp-bsp = " optee jailhouse bcm4359"
 
 KERNEL_DEVICETREE = " \
 	freescale/${KERNEL_DEVICETREE_BASENAME}.dtb \
 "
-KERNEL_DEVICETREE_append_use-nxp-bsp = " \
+KERNEL_DEVICETREE:append_use-nxp-bsp = " \
 	freescale/${KERNEL_DEVICETREE_BASENAME}-ak5558.dtb \
 	freescale/${KERNEL_DEVICETREE_BASENAME}-inmate.dtb \
 	freescale/${KERNEL_DEVICETREE_BASENAME}-rm67191.dtb \
@@ -63,7 +63,7 @@ UBOOT_EXTLINUX_ROOT_default_use-mainline-bsp    = "root=/dev/mmcblk1p2"
 
 # Add extlinux.conf to the lis of files, which are deployed onto the
 # boot partition
-IMAGE_BOOT_FILES_append_use-mainline-bsp = " extlinux.conf;extlinux/extlinux.conf"
+IMAGE_BOOT_FILES:append_use-mainline-bsp = " extlinux.conf;extlinux/extlinux.conf"
 
 BOOT_SPACE = "65536"
 LOADADDR = ""
@@ -79,4 +79,4 @@ OPTEE_BIN_EXT = "8mn"
 TEE_LOAD_ADDR = "0x56000000"
 
 # Add additional firmware
-MACHINE_FIRMWARE_append = " linux-firmware-ath10k"
+MACHINE_FIRMWARE:append = " linux-firmware-ath10k"

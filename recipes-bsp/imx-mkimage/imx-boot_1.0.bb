@@ -20,7 +20,7 @@ DEPENDS += " \
 "
 # xxd is a dependency of fspi_packer.sh
 DEPENDS += "xxd-native"
-DEPENDS_append_mx8m = " u-boot-mkimage-native dtc-native"
+DEPENDS:append_mx8m = " u-boot-mkimage-native dtc-native"
 BOOT_NAME = "imx-boot"
 PROVIDES = "${BOOT_NAME}"
 
@@ -41,7 +41,7 @@ do_compile[depends] += " \
 SC_FIRMWARE_NAME ?= "scfw_tcm.bin"
 
 ATF_MACHINE_NAME ?= "bl31-${ATF_PLATFORM}.bin"
-ATF_MACHINE_NAME_append = "${@bb.utils.contains('MACHINE_FEATURES', 'optee', '-optee', '', d)}"
+ATF_MACHINE_NAME:append = "${@bb.utils.contains('MACHINE_FEATURES', 'optee', '-optee', '', d)}"
 
 UBOOT_NAME = "u-boot-${MACHINE}.bin-${UBOOT_CONFIG}"
 BOOT_CONFIG_MACHINE = "${BOOT_NAME}-${MACHINE}-${UBOOT_CONFIG}.bin"
@@ -199,6 +199,6 @@ do_deploy() {
 addtask deploy before do_build after do_compile
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-FILES_${PN} = "/boot"
+FILES:${PN} = "/boot"
 
 COMPATIBLE_MACHINE = "(mx8)"

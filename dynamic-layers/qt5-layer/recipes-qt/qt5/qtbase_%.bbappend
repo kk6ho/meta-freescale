@@ -3,9 +3,9 @@
 # Copyright (C) 2016, 2017 O.S. Systems Software LTDA.
 # Copyright (C) 2017-2018 NXP
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI_append_imxgpu = " \
+SRC_URI:append_imxgpu = " \
     file://0014-Add-IMX-GPU-support.patch \
     file://0001-egl.prf-Fix-build-error-when-egl-headers-need-platfo.patch \
 "

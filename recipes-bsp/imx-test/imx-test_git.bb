@@ -9,9 +9,9 @@ LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-2.0-or-later;md5=fed54355545ffd980b814dab4a3b312c"
 
 DEPENDS = "alsa-lib libdrm"
-DEPENDS_append_mx6 = " imx-lib"
-DEPENDS_append_mx7 = " imx-lib"
-DEPENDS_append_imxvpu = " virtual/imxvpu"
+DEPENDS:append_mx6 = " imx-lib"
+DEPENDS:append_mx7 = " imx-lib"
+DEPENDS:append_imxvpu = " virtual/imxvpu"
 
 PE = "1"
 PV = "7.0+${SRCPV}"
@@ -43,8 +43,8 @@ PARALLEL_MAKE = "-j 1"
 EXTRA_OEMAKE += "${PACKAGECONFIG_CONFARGS}"
 
 PACKAGECONFIG = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)}"
-PACKAGECONFIG_append_imxvpu = " vpu"
-PACKAGECONFIG_append_mx8m   = " swpdm"
+PACKAGECONFIG:append_imxvpu = " vpu"
+PACKAGECONFIG:append_mx8m   = " swpdm"
 
 PACKAGECONFIG[x11] = ",,libx11 libxdamage libxrender libxrandr"
 PACKAGECONFIG[vpu] = "HAS_VPU=true,HAS_VPU=false,virtual/imxvpu"
@@ -76,7 +76,7 @@ do_install() {
     install -m 0644 ${WORKDIR}/memtool_profile ${D}/home/root/.profile
 }
 
-FILES_${PN} += "/unit_tests /home/root/.profile"
-RDEPENDS_${PN} = "bash"
+FILES:${PN} += "/unit_tests /home/root/.profile"
+RDEPENDS:${PN} = "bash"
 
-FILES_${PN}-dbg += "/unit_tests/.debug"
+FILES:${PN}-dbg += "/unit_tests/.debug"

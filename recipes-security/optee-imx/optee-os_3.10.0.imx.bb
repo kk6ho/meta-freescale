@@ -37,8 +37,8 @@ PLATFORM_FLAVOR_mx8dx             = "mx8dxmek"
 PLATFORM_FLAVOR_mx8dxl            = "mx8dxlevk"
 
 OPTEE_ARCH ?= "arm32"
-OPTEE_ARCH_armv7a = "arm32"
-OPTEE_ARCH_aarch64 = "arm64"
+OPTEE_ARCH:armv7a = "arm32"
+OPTEE_ARCH:aarch64 = "arm64"
 
 # Optee-os can be built for 32 bits and 64 bits at the same time
 # as long as the compilers are correctly defined.
@@ -86,9 +86,9 @@ do_install () {
 addtask deploy after do_compile before do_install
 
 
-FILES_${PN} = "${nonarch_base_libdir}/firmware/"
-FILES_${PN}-staticdev = "/usr/include/optee/"
-RDEPENDS_${PN}-dev += "${PN}-staticdev"
+FILES:${PN} = "${nonarch_base_libdir}/firmware/"
+FILES:${PN}-staticdev = "/usr/include/optee/"
+RDEPENDS:${PN}-dev += "${PN}-staticdev"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "(imx|imx-boot-container)"

@@ -9,6 +9,6 @@ ISP_PKGS_mx8mp = " \
     basler-camera-dev \
     kernel-module-isp-vvcam \
 "
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     ${ISP_PKGS} \
 "

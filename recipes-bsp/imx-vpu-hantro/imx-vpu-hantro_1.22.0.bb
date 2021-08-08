@@ -28,8 +28,8 @@ do_install () {
     oe_runmake install DEST_DIR="${D}"
 }
 
-FILES_${PN} += "/unit_tests"
+FILES:${PN} += "/unit_tests"
 
-RDEPENDS_${PN} += "imx-vpu-hantro-daemon"
+RDEPENDS:${PN} += "imx-vpu-hantro-daemon"
 
 COMPATIBLE_MACHINE = "(mx8mq|mx8mm|mx8mp)"
